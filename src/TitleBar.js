@@ -28,6 +28,7 @@ class TitleBar extends Component {
     }
     _onItemPress(position) {
         this.refs[VIEWPAGER_REF] && this.refs[VIEWPAGER_REF].setPageWithoutAnimation(position);
+        setTimeOut(this.props.onItemPress(position),1)
     }
     setPage(selectedPage: number) {
         this.refs[VIEWPAGER_REF].setPage(selectedPage);
