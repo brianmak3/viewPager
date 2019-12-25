@@ -1,9 +1,10 @@
 'use script'
 import ViewPager from './ViewPager';
 import React, { Component } from 'react';
-import { Animated, View, Text } from 'react-native'
+import { Animated, View, Text, ScrollView } from 'react-native'
 import PropTypes from 'prop-types';
 import Title from './TitleBar.Title';
+import Headroom from 'react-native-headroom';
 
 const TITLE_REF = 'TITLE';
 const VIEWPAGER_REF = 'VIEWPAGER';
@@ -28,6 +29,7 @@ class TitleBar extends Component {
     }
     _onItemPress(position) {
         this.refs[VIEWPAGER_REF] && this.refs[VIEWPAGER_REF].setPageWithoutAnimation(position);
+        setTimeout(()=>this.props.onItemPress(position),1)
     }
     setPage(selectedPage: number) {
         this.refs[VIEWPAGER_REF].setPage(selectedPage);
@@ -55,18 +57,26 @@ class TitleBar extends Component {
         return <View
             style={style}
             onLayout={this.props.onLayout}
-        >
-            <Title
-                ref={TITLE_REF}
-                backgroundColor={this.props.backgroundColor}
-                renderTitle = {this.props.renderTitle}
-                borderStyle={this.props.borderStyle}
-                onItemPress={(position) => this._onItemPress(position)}
-                initialPage={this.props.initialPage}
-                titles={this.props.titles} />
-            <ViewPager
-                ref={VIEWPAGER_REF}
-                {...viewpagerProps} />
+           >
+            <View style={{flex:1}}>
+                 <Headroom 
+                     headerComponent={this.props.headerComponent()}
+                      headerHeight={ this.props.headerHeight}
+                      scrollEventThrottle={ this.props.scrollEventThrottle }
+                    > 
+                     <Title
+                        ref={TITLE_REF}
+                        backgroundColor={this.props.backgroundColor}
+                        renderTitle = {this.props.renderTitle}
+                        borderStyle={this.props.borderStyle}
+                        onItemPress={(position) => this._onItemPress(position)}
+                        initialPage={this.props.initialPage}
+                        titles={this.props.titles} />
+                    <ViewPager
+                        ref={VIEWPAGER_REF}
+                        {...viewpagerProps} />
+                    </Headroom > 
+                </View>
         </View>
     }
 }
