@@ -2788,9 +2788,10 @@ react-devtools-core@3.0.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-native-awesome-viewpager@^1.0.1:
+react-native-headroom@^1.0.1:
   version "1.0.1"
-  resolved "http://registry.npm.taobao.org/react-native-awesome-viewpager/download/react-native-awesome-viewpager-1.0.1.tgz#b9c741bd03debe42656fd976b57d1ff21f421bd6"
+  resolved "https://registry.yarnpkg.com/react-native-headroom/-/react-native-headroom-1.0.1.tgz#e2c0fc78a778c641febc95d528984c94f5283511"
+  integrity sha1-4sD8eKd4xkH+vJXVKJhMlPUoNRE=
 
 react-native@>=0.48:
   version "0.52.1"

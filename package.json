@@ -10,7 +10,7 @@
     "prop-types": ">=15",
     "react": ">=16.0.0",
     "react-native": ">=0.48",
-    "react-native-headroom": "=>^1.0.1"
+    "react-native-headroom": "^1.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,6 +31,5 @@
     "url": "https://github.com/pallyoung/react-native-awesome-viewpager/issues"
   },
   "homepage": "https://github.com/pallyoung/react-native-awesome-viewpager#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
