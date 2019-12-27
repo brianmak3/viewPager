@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { Animated, View, Text, ScrollView } from 'react-native'
 import PropTypes from 'prop-types';
 import Title from './TitleBar.Title';
-import Headroom from 'react-native-headroom';
 
 const TITLE_REF = 'TITLE';
 const VIEWPAGER_REF = 'VIEWPAGER';
@@ -59,11 +58,6 @@ class TitleBar extends Component {
             onLayout={this.props.onLayout}
            >
             <View style={{flex:1}}>
-                 <Headroom 
-                     headerComponent={this.props.headerComponent()}
-                      headerHeight={ this.props.headerHeight}
-                      scrollEventThrottle={ this.props.scrollEventThrottle }
-                    > 
                      <Title
                         ref={TITLE_REF}
                         backgroundColor={this.props.backgroundColor}
@@ -75,7 +69,6 @@ class TitleBar extends Component {
                     <ViewPager
                         ref={VIEWPAGER_REF}
                         {...viewpagerProps} />
-                    </Headroom > 
                 </View>
         </View>
     }
